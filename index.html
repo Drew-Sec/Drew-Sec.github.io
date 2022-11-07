@@ -58,14 +58,14 @@ and is wrapped around the whole page content, except for the footer in this exam
   <div class="w3-container">
       <h6><b><u>Proof of Concept</u></b></h6>
       <p><b>1. The first step for recreating this phishing attack is to create a google account that impersonates the individual you would like to spoof in your attack. This can be accomplished by changing the name and photo of the account to match whoever you are impersonating. For our example, we will impersonate Barack Obama. For the best outcome, you should impersonate someone with authority over the recipient of your phishing attack, such as their boss or an executive at their organization.</b></p>
-      <img src="obama.png" style="width:70%">
+      <img src="obama.png" style="width:30%">
       <p></p>
       <p><b>2. Next, create a new meeting on your Google Calendar and select a title that creates a sense of urgency.</b></p>
       <img src="title.png" style="width:70%"> 
       <p><b>3. After adding the email address you wish to send your phishing attack to, make sure to deselect the 'Guest Permission' that allows guests to invite others and to see the guest list. This will ensure that the target can not see that they are the only one invited to this meeting.</b></p>
       <img src="permission.png" style="height=30%"> 
       <p><b>4. Now in the description section of your new meeting, select the 'insert link' tab and enter a convincing fake zoom link. In the second input, enter the url of your malicious link (example: evilginx2 url that is set up to MITM the target's SSO signin page).</b></p> 
-      <img src="link.png" style="width=70%">
+      <img src="link.png" style="width=30%">
       <p><b>5. Once your malicious hyperlink is created, now add fake text to the description to look like a legitimate zoom meeting invitation. For example, fake meeting ID, passcode, and a long list of fake phone numbers. (It's important to have long list of text here, because this will obfuscate the malicious email address that is sending the meeting invite. I will include an example later on)</b></p>
       <img src="description.png" style="width:70%">
       <p><b>6. In order to make this technique work, we want to send the target the meeting invite <u>roughly 12 minutes</u> before the start time of the meeting. We do not want to send a notification email for our malicious meeting, because this will include our gmail address. Thus, we will simply place the 'emergency' meeting on the victims calendar 12 minutes before the start time, and allow the default '10 minute reminder' to notify them that they are about to miss an important meeting.</b></p>
