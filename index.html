@@ -50,7 +50,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <h6><b><u>Disclaimer</u></b></h6>
       <p><b>The following information is for <b><u>educational purposes only.</u></b> This post is intended for Red Teams, Penetration Testers, and Blue Teams looking to secure their orginizations. <u>DO NOT</u> use any of the following techniques maliciously or without the explicit permission of all those involved.</b></p>  
       <h6><b><u>Background</u></b></h6>
-      <p><b> For many organizations using G-Suite, the default setting on company Google accounts is set to allow anyone to place a meeting invite onto employee's calendars. This setting therefore allows an external attacker (using a external Gmail account) to send a malicious meeting invite and have it magically appear on an employee's calendar.</b></p>
+      <p><b> For many organizations using G-Suite, the default setting on company Google accounts is set to allow anyone to place a meeting invite onto employee's calendars. This setting therefore allows an external attacker (using an external Gmail account) to send a malicious meeting invite and have it magically appear on an employee's calendar.</b></p>
       <p><b> The following phishing technique utilizes Google Calendar as the delivery mechanism for a malicious link. This malicious link is disguised to look like something many of us are familiar with clicking numerous times a day: a Zoom meeting link. The most important aspect of this attack is that by using Google Calendar to deliver our attack, we are able to circumvent many common security controls, such as email filters and spoofing protections. When paired with a MITM tool such as Evilginx2, this technique can be devestating to an organization.</b></p>
       <img src="phish.png" style="width:100%">
     </div>
@@ -58,20 +58,17 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-card-4 w3-margin w3-white">  
   <div class="w3-container">
       <h6><b><u>Proof of Concept</u></b></h6>
-      <p><b>1. The first step for recreating this phishing attack is to create a google account that impersonates the individual you would like to spoof in your attack. This can be accomplished by changing the name and photo of the account to match whoever you are impersonating. For our example, we will impersonate Barack Obama. For the best outcome, you should impersonate someone with authority over the recipient of your phishing attack, such as their boss or an executive at their organization.</b></p>
-      <img src="obama.png" style="width:30%">
-      <p></p>
-      <p><b>2. Next, create a new meeting on your Google Calendar and select a title that creates a sense of urgency.</b></p>
+      <p><b>1. Login to a Google account and create a new meeting on your Google Calendar. Choose a title for your meeting that will create a sense of urgency.</b></p>
       <img src="title.png" style="width:70%"> 
-      <p><b>3. After adding the email address you wish to send your phishing attack to, make sure to deselect the 'Guest Permission' that allows guests to invite others and to see the guest list. This will ensure that the target can not see that they are the only one invited to this meeting.</b></p>
+      <p><b>2. Now add the email address you wish to send your phishing attack to, make sure to deselect the 'Guest Permission' that allows guests to invite others and to see the guest list. This will ensure that the target can not see that they are the only person invited to this meeting and will obfuscate your malicious email address.</b></p>
       <img src="permission.png" style="width:70%"> 
-      <p><b>4. Now in the description section of your new meeting, select the 'insert link' tab and enter a convincing fake zoom link. In the second input, enter the url of your malicious link (example: evilginx2 url that is set up to MITM the target's SSO signin page).</b></p> 
+      <p><b>3. Now in the description section of your new meeting, select the 'insert link' tab and enter a convincing fake zoom link. In the second input, enter the url of your malicious link (example: evilginx2 url that is set up to MITM the target's SSO signin page).</b></p> 
       <img src="link.png" style="width:70%">
-      <p><b>5. Once your malicious hyperlink is created, now add fake text to the description to look like a legitimate zoom meeting invitation. For example, fake meeting ID, passcode, and a long list of fake phone numbers. (It's important to have long list of text here, because this will obfuscate the malicious email address that is sending the meeting invite. I will include an example later on)</b></p>
+      <p><b>4. Once your malicious hyperlink is created, now add fake text to the description to look like a legitimate zoom meeting invitation. For example, fake meeting ID, passcode, and a long list of fake phone numbers. (It's important to have long list of text here, because this will obfuscate the malicious email address that is sending the meeting invite. I will include an example later on)</b></p>
       <img src="description.png" style="width:70%">
-      <p><b>6. In order to make this technique work, we want to send the target the meeting invite <u>roughly 12 minutes</u> before the start time of the meeting. We do not want to send a notification email for our malicious meeting, because this will include our gmail address. Thus, we will simply place the 'emergency' meeting on the victims calendar 12 minutes before the start time, and allow the default '10 minute reminder' to notify them that they are about to miss an important meeting.</b></p>
+      <p><b>5. In order to make this technique work, we want to send the target the meeting invite <u>roughly 12 minutes</u> before the start time of the meeting. We do not want to send a notification email for our malicious meeting, because this will include our gmail address. Thus, we will simply place the 'emergency' meeting on the victims calendar 12 minutes before the start time, and allow the default '10 minute reminder' to notify them that they are about to miss an important meeting.</b></p>
       <img src="notification.png" style="width:70%">
-      <p><b>7. Once your finished filling out your meeting invite, select the save button. A pop up will appear asking if you would like to send a 'invitation email'. Make sure to select 'Dont Send' because your malicious email address will appear in the email sent to your target.</b></p>
+      <p><b>6. Once your finished filling out your meeting invite, select the save button. A pop up will appear asking if you would like to send a 'invitation email'. Make sure to select 'Dont Send' because your malicious email address will appear in the email sent to your target.</b></p>
       <img src="dontsend.png" style="width:70%">
       <p></p>
     </div>
@@ -83,7 +80,8 @@ and is wrapped around the whole page content, except for the footer in this exam
       <h6><b><u>Red Flag</b></u></h6>
       <p><b>Note that the senders email is obfuscated because we deselected the 'see guest list' option. The only red flag is the malicious email address used to send the meeting invite. This address is also obfuscated by the long list of fake phone numbers included in the description. The only way the target will see the sending email is if they scroll all the way down to the bottom of the description.</b></p>
       <img src="flag.png" style="width:70%">
-      
+      <p><</p>
+      <p><b>For extra legitimacy, you might want to purchase a domain that is similar to your target company's URL. You can then set up a Google WorkSpace and Evilginx2 using this similar domain to create an even more legitimate looking attack.</b></p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
           
