@@ -80,7 +80,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   </div>
 </div>
 <!-- Blog entries -->
-<div class="w3-col l8 s12" style="width:1600px">
+<div class="w3-col l8 s12">
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
     <div class="w3-container">
@@ -89,7 +89,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
 
     <div class="w3-container">
-      <img src="images/logo.png" style="width:20%">
+      <img src="images/logo.png" style="width:30%">
       <p style="font-size: 24px"><strong>Github Project Link:</strong> <a style="color: #0000EE" href="https://github.com/Drew-Sec/EvilSlackbot">EvilSlackbot</a></p>
       <h6 style="font-size: 24px"><b><u>Disclaimer</u></b></h6>
       <p style="font-size: 18px"><b>The following information is for <b><u>educational purposes only.</u></b> This post is intended for Security Professionals looking to secure their orginizations. <u>DO NOT</u> use any of the following techniques maliciously or without the explicit permission of all those involved.</b></p>  
@@ -102,77 +102,77 @@ and is wrapped around the whole page content, except for the footer in this exam
       <h6 id="walkthrough" style="font-size: 26px"><b><u>Walkthrough</u></b></h6>
       <p id="install" style="font-size:20px"><u>Installation:</u></p>
       <p style="font-size: 18px"> <em>EvilSlackbot</em> requires both Python3 and Slackclient to run properly. To obtain Slackclient, you can simply install it using pip3.</p>
-      <img src="images/install.png" style="width:40%">
+      <img src="images/install.png" style="width:80%">
       <p id="usage" style="font-size:20px"><u>Usage:</u></p>
-      <img src="images/help.png" style="width:50%">
+      <img src="images/help.png" style="width:90%">
       <p id="token"style="font-size:20px"><u>Token:</u></p>
       <p style="font-size: 18px"> To use <em>EvilSlackbot</em> you will need an <b>xoxb or xoxp</b> token to authenticate to Slack's API. This is the <u>only required</u> flag when running <em>EvilSlackbot</em>. </p>
-      <img src="images/token.png" style="width:30%">
+      <img src="images/token.png" style="width:60%">
       <p style="font-size: 18px"> One problem with xoxb tokens is that they are often exfiltrated during an engagement, but it is a pain to figure out what permissions are associated with them and what the token can be used to accomplish. <em>EvilSlackbot</em> will automatically take the token you provide it and display not only what permissions are associated with it, but also what attacks these permissions allow you to execute with <em>Evilslackbot</em>.<b> If your token does not possess all of the required permissions to execute a given attack, then you will not see that attack listed when you run <em>EvilSlackbot</em></b>. To simply check the permissions and attacks available for your token, provide <em>EvilSlackbot</em> with your token and utilize the <u>-c/--check flag</u></p>
-      <img src="images/check.png" style="width:60%">
+      <img src="images/check.png" style="width:90%">
       <br></br>
       <h6 id="attacks"style="font-size: 24px"><b><u>Attacks</b></u></h6>
       <p style="font-size: 18px">List of attacks that can be executed with <em>EvilSlackbot</em></p>
-      <img src="images/attacks.png" style="width:60%"></p>
+      <img src="images/attacks.png" style="width:100%"></p>
       <p id="args" style="font-size: 18px">List of arguments to accompany your attacks</p>
-      <img src="images/args.png" style="width:60%"></p>
+      <img src="images/args.png" style="width:100%"></p>
       <br></br>
       <h6 id="spoof"style="font-size: 24px"><b><u>Spoofed Messages (-sP)</b></u></h6>
       <p style="font-size: 18px">With the correct token permissions, EvilSlackbot allows you to send phishing messages while impersonating the botname and bot photo. This attack also requires either <b>the email address (-e) of the target, a list of target emails (-eL), or the name of a Slack channel (-cH)</b>. EvilSlackbot will use these arguments to lookup the SlackID of the user associated with the provided emails or channel name. <b>To automate your attack, use a list of emails.</b></p>
-      <img src="images/spoof.png" style="width:40%">
+      <img src="images/spoof.png" style="width:80%">
       <p style="font-size: 22px"><u>Example:</u></p>
       <p style="font-size: 18px">As an example, we'll take a look at using the Spoof message option to send a malicious link to a list of emails that are associated with users inside the bot's Slack workspace. We will have the ability to choose our sending bots name and profile image, allowing us to impersonate any bot we'd like or create a completely new bot that does not actually exist.</p>
-      <img src="images/spoof1.png" style="width:70%">
+      <img src="images/spoof1.png" style="width:100%">
       <p style="font-size: 18px">Next, we'll fill out all the requested input, providing a name for our evil bot, a url to an image hosted on the web, and a message containing our malicious link. Note that our message contains a hypertext link that obfuscates our actual link.</p>
-      <img src="images/spoof2.png" style="width:70%">
+      <img src="images/spoof2.png" style="width:100%">
       <p style="font-size: 18px"> <em>EvilSlackbot</em> will then display what we've selected and ask if we're ready to send our message. By typing "yes", our message will automatically be sent to every slack user on the email list we provided. If the email address provided does not have a Slack user associated with it in the workspace, <em>EvilSlackbot</em> will ignore it and continue down the list.</p>
-      <img src="images/spoof3.png" style="width:70%">
+      <img src="images/spoof3.png" style="width:100%">
       <p style="font-size: 18px"> Now we can go to our test Slack workspace and see that our spoofed slack message has been received</p>
-      <img src="images/spoof4.png" style="width:60%">
+      <img src="images/spoof4.png" style="width:100%">
       <br></br>
       <h6 id="message" style="font-size: 24px"><b><u>Phishing Messages (-m)</b></u></h6> 
       <p style="font-size: 18px"> 
       With the correct token permissions, <em>EvilSlackbot</em> allows you to send phishing messages containing phishing links. What makes this attack different from the Spoofed attack is that this method will send the message as the bot associated with your provided token. You will not be able to choose the name or image of the bot sending your phish. This attack also requires either <b><u>the email address (-e) of the target, a list of target emails (-eL), or the name of a Slack channel (-cH)</u></b>. <em>EvilSlackbot</em> will use these arguments to lookup the SlackID of the user associated with the provided emails or channel name. <b>To automate your attack, use a list of emails</b>.</p>
-      <img src="images/messages.png" style="width:40%">
+      <img src="images/messages.png" style="width:80%">
       <p style="font-size: 22px"><u>Example:</u></p>
       <p style="font-size: 18px">As an example, we'll send a phishing message containing  a malicious link to a single email address.</p>
-      <img src="images/message.png" style="width:80%">
+      <img src="images/message.png" style="width:100%">
       <p style="font-size: 18px">Unlike the spoofed message attack, we will only be able to choose the message containing our malicious link. The actual bot associated with our token will deliver our message. In this example, the xoxb token belongs to calendarbot, a bot that this Slack workspace usually uses to send meeting reminders. We will send a message as this bot and include a hypertext link to our malicious site.</p>
-      <img src="images/message1.png" style="width:80%">
+      <img src="images/message1.png" style="width:100%">
       <p style="font-size: 18px">After reviewing our input, we'll type yes to send our phishing message to the Slack user associated with the email address we provided.</p>
-      <img src="images/message2.png" style="width:80%"> 
+      <img src="images/message2.png" style="width:100%"> 
       <p style="font-size: 18px"> Now we can go to our test Slack workspace and see that our slack phishing message has been received</p>
-      <img src="images/message3.png" style="width:50%">
+      <img src="images/message3.png" style="width:90%">
       <br></br>
       <h6 id="attach"style="font-size: 24px"><b><u>Attachments (-a)</b></u></h6>
       <p style="font-size: 18px">
       With the correct token permissions, <em>EvilSlackbot</em> allows you to send file attachments.<b> The attachment attack <u>requires a path to the file (-f)</u> you wish to send.</u></b> <b>This attack also requires either the <u>email address (-e) of the target, a list of target emails (-eL), or the name of a Slack channel (-cH).</u></b> <em>EvilSlackbot</em> will use these arguments to lookup the SlackID of the user associated with the provided emails or channel name. To automate your attack, use a list of emails.</p>
-      <img src="images/attach.png" style="width:50%">
+      <img src="images/attach.png" style="width:90%">
       <p style="font-size: 22px"><u>Example:</u></p>
       <p style="font-size: 18px"> As an example, we'll send a malicious attachment to a public Slack Channel. In this example, the xoxb token belongs to SecurityBot, a bot that this Slack workspace usually uses to send security information. We will send a message as this bot and include a malicious file attachment. Note that we did not include the # in the channel name</p>
-      <img src="images/attach1.png" style="width:80%">
+      <img src="images/attach1.png" style="width:100%">
       <p style="font-size: 18px">We will now craft our malicious message that will be sent by the SecurityBot and name our malicious attachment.</p>
-      <img src="images/attach2.png" style="width:80%">
+      <img src="images/attach2.png" style="width:100%">
       <p style="font-size: 18px">Next, we'll review our message and type 'yes' to send our malicious attachment to the designated Slack channel.</p> 
-      <img src="images/attach3.png" style="width:80%">
+      <img src="images/attach3.png" style="width:100%">
       <p style="font-size: 18px"> Now we can go to our test Slack workspace and see that our malicious attachment has been received in the General channel</p>
-      <img src="images/attach4.png" style="width:60%"><br></br>
+      <img src="images/attach4.png" style="width:90%"><br></br>
       <h6 id="channel"style="font-size: 24px"><b><u>Channel List (-cL)</b></u></h6>
       <p style="font-size: 18px"> With the correct permissions, <em>EvilSlackbot</em> can search for and list all of the public channels within the Slack workspace. This can help with planning where to send channel messages. Use -o to write the list to an outfile.</p>
-      <img src="images/channel.png" style="width:40%">
+      <img src="images/channel.png" style="width:80%">
       <p style="font-size: 22px"><u>Example:</u></p>
       <p style="font-size: 18px"> Running the channel list command and writing the results to an outfile </p>
-      <img src="images/channel1.png" style="width:60%">
+      <img src="images/channel1.png" style="width:100%">
       <br></br>
-      <img src="images/channel2.png" style="width:20%"><br></br>
+      <img src="images/channel2.png" style="width:30%"><br></br>
       <h6 id="search"style="font-size: 24px"><b><u>Secret Search (-s)</b></u></h6>
       <p style="font-size: 18px">With the correct token permissions, <em>EvilSlackbot</em> allows you to search Slack for secrets via a keyword search. Right now, <u>this attack requires a xoxp token</u>, as xoxb tokens can not be given the proper permissions to keyword search within Slack. Use the -o argument to write the search results to an outfile.</p>
-      <img src="images/search.png" style="width:40%">
+      <img src="images/search.png" style="width:70%">
       <p style="font-size: 22px"><u>Example:</u></p>
       <p style="font-size: 18px"> Using the -s flag and a <u>xoxp token</u>, we start our secrets search. Note that the token permissions check shows that this token has less permissions and can only conduct the search attack.</p>
-      <img src="images/search1.png" style="width:70%">
+      <img src="images/search1.png" style="width:100%">
       <p style="font-size: 18px">We search for the keyword "password" and <em>EvilSlackbot</em> prints the results to the terminal. Remember that -o can be used to write the results to an out file.</p>
-      <img src="images/search2.png" style="width:40%"><br></br>
+      <img src="images/search2.png" style="width:80%"><br></br>
     </b>  
     </div>
   </div>
